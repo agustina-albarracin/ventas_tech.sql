@@ -43,3 +43,23 @@ Explorar el panel de medidas DAX (_Medidas) que incluye métricas de rendimiento
 ├── schema_y_datos.sql              # Estructura de tablas (categorias, clientes, productos, ventas) e inserciones
 ├── Pipeline_ETL_RetailPro.pbix     # Archivo principal de Power BI con el modelo relacional y medidas DAX
 └── README.md                       # Documentación técnica del repositorio
+
+## ⚙️ Instrucciones de Ejecución y Configuración
+
+### 1. Configuración de la Base de Datos (PostgreSQL / pgAdmin)
+1. Cloná este repositorio en tu computadora o descargá los scripts SQL incluidos.
+2. Abrí **pgAdmin** y creá una nueva base de datos llamada `ventas_tech`.
+3. Ejecutá el script de creación de tablas (`categorias`, `clientes`, `productos`, `ventas`) junto con las sentencias de inserción de datos (`INSERT INTO`).
+
+### 2. Ejecución y Auditoría de Consultas
+* Abrí el archivo `m5_consultas_joins.sql` en tu entorno de PostgreSQL para verificar la vista base con uniones (`INNER JOIN`), el resumen ejecutivo mensual y el ranking de productos.
+
+### 3. Modelo Analítico y Visualización (Power BI Desktop)
+1. Abrí el archivo `Pipeline_ETL_RetailPro.pbix` en Power BI Desktop.
+2. Verificá que el modelo en estrella (*Star Schema*) mantenga las relaciones activas de **1 a muchos (1:N)** desde la tabla de hechos central `ventas` hacia las dimensiones (`clientes`, `productos`, `categorias` y `Dim_Fechas`).
+3. Comprobá las medidas DAX clave centralizadas en la tabla `_Medidas`:
+   * `Total Ventas`
+   * `Ventas YTD`
+   * `Ventas LY`
+   * `% Crecimiento Anual`
+4. Validá el comportamiento temporal utilizando la matriz con jerarquía de fechas.
