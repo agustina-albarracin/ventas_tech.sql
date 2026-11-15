@@ -1,36 +1,45 @@
-# ventas_tech.sql
+# RetailPro — Dashboard de Rendimiento Comercial y Modelo Analítico
 
-# 🛒 TechStore - Sistema de Gestión y Análisis de Datos (SQL & PostgreSQL)
-
-Repositorio oficial para las entregas y prácticas de gestión de bases de datos y análisis de negocio orientadas al caso **TechStore** (RetailPro), implementado en entornos relacionales normalizados utilizando **PostgreSQL (pgAdmin)**.
+Repositorio oficial del proyecto analítico **RetailPro**, desarrollado para la gestión de datos, modelado relacional, automatización ETL y visualización de indicadores comerciales.
 
 ---
 
-## 🛠️ Requisitos del Entorno
-
-*   **Motor de base de datos:** PostgreSQL (versión 13 o superior recomendada).
-*   **Herramienta de gestión:** pgAdmin 4.
-*   **Convenciones técnicas:** Todos los scripts evitan el uso de tildes y eñes (`ñ`) en los nombres de objetos y alias de columnas para asegurar la máxima compatibilidad de codificación (Encoding UTF-8) y prevenir errores de sintaxis.
+## 🚀 Descripción del Proyecto
+RetailPro es una solución integral de inteligencia de negocios diseñada para optimizar el análisis de ventas, el seguimiento del rendimiento de productos y el control de inventarios. El proyecto integra bases de datos relacionales, consultas SQL avanzadas y un modelo multidimensional en estrella (`Star Schema`) implementado en Power BI.
 
 ---
 
-## 🚀 Instrucciones de Ejecución
+## 🛠️ Tecnologías y Herramientas Utilizadas
+* **Base de Datos / SQL:** PostgreSQL y pgAdmin (para la gestión y ejecución de consultas relacionales).
+* **Transformación de Datos:** Power Query (limpieza, uniones y tipado de datos ETL).
+* **Modelado y Visualización:** Power BI Desktop (Modelo en estrella, medidas DAX y matriz de validación temporal).
+* **Control de Versiones:** Git y GitHub.
 
-Para probar y replicar el proyecto de manera limpia desde tu entorno de desarrollo, ejecutá los scripts en el siguiente orden estricto:
+---
 
-1.  **Crear la Base de Datos:**
-    Abre una herramienta de consulta en tu servidor PostgreSQL y crea el esquema base:
-    ```sql
-    CREATE DATABASE Ventas_Tech_DB;
-    ```
-    *Nota: Conéctate a la base de datos `Ventas_Tech_DB` antes de ejecutar los scripts siguientes.*
+## 📂 Estructura del Repositorio
+```text
+├── m5_consultas_joins.sql          # Consultas SQL con vistas base, INNER JOINs y análisis ejecutivo
 
-2.  **Ejecutar el Modelo de Datos (M3):**
-    *   Carga el archivo `modulo_3/ventas_tech_db.sql` en el Query Tool de pgAdmin.
-    *   Ejecuta el script completo para borrar tablas previas (patrón repetible), crearlas en el orden correcto respetando las *Foreign Keys* e insertar los registros iniciales.
+⚙️ Instrucciones de Ejecución y Configuración
+1. Configuración de la Base de Datos (PostgreSQL / pgAdmin)
+Cloná este repositorio en tu computadora o descargá los scripts SQL.
 
-3.  **Ejecutar las Consultas de Negocio (M4):**
-    *   Carga y ejecuta el archivo `modulo_4/m4_consultas_negocio.sql` para visualizar el resumen mensual, el ranking de artículos, la recurrencia de clientes y el análisis del promedio general.
+Abrí pgAdmin y creá una nueva base de datos llamada ventas_tech.
 
-4.  **Ejecutar los Cruces y Vistas con JOINs (M5):**
-    *   Carga y ejecuta el archivo `modulo_5/m5_consultas_joins.sql` para generar la vista analítica unificada, auditar carencias comerciales (clientes y productos sin movimiento) y consolidar la facturación por canales operativos.
+Ejecutá el script de creación de tablas (categorias, clientes, productos, ventas) junto con los datos de prueba (INSERT INTO).
+
+2. Ejecución de Consultas
+Abrí el archivo m5_consultas_joins.sql para visualizar las consultas base con uniones (INNER JOIN), el resumen ejecutivo mensual y los rankings de productos.
+
+3. Visualización en Power BI
+Abrir Power BI Desktop.
+
+Conectar la fuente de datos a tu instancia de PostgreSQL o importar las tablas normalizadas.
+
+Verificar las relaciones activas 1:N desde la tabla central de hechos ventas (Fact_Ventas) hacia las dimensiones de clientes, productos, categorías y fechas.
+
+Explorar el panel de medidas DAX (_Medidas) que incluye métricas de rendimiento como Total Ventas, Ventas YTD, Ventas LY y % Crecimiento Anual.
+├── schema_y_datos.sql              # Estructura de tablas (categorias, clientes, productos, ventas) e inserciones
+├── Pipeline_ETL_RetailPro.pbix     # Archivo principal de Power BI con el modelo relacional y medidas DAX
+└── README.md                       # Documentación técnica del repositorio
