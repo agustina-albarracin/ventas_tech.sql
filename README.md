@@ -24,28 +24,8 @@ RetailPro es una solución integral de inteligencia de negocios diseñada para o
 ├── Pipeline_ETL_RetailPro.pbix     # Archivo principal de Power BI con el modelo relacional y medidas DAX
 └── README.md                       # Documentación técnica del repositorio
 ---
-
-## ⚙️ Instrucciones de Ejecución y Configuración
-1. Configuración de la Base de Datos (PostgreSQL / pgAdmin)
-Cloná este repositorio en tu computadora o descargá los scripts SQL incluidos.
-
-Abrí pgAdmin y creá una nueva base de datos llamada ventas_tech.
-
-Ejecutá el script de creación de tablas (categorias, clientes, productos, ventas) junto con las sentencias de inserción de datos (INSERT INTO).
-
-2. Ejecución y Auditoría de Consultas
-Abrí el archivo m5_consultas_joins.sql en tu entorno de PostgreSQL para verificar la vista base con uniones (INNER JOIN), el resumen ejecutivo mensual y el ranking de productos.
-
-3. Modelo Analítico y Visualización (Power BI Desktop)
-Abrí el archivo Pipeline_ETL_RetailPro.pbix en Power BI Desktop.
-
-Verificá que el modelo en estrella (Star Schema) mantenga las relaciones activas de 1 a muchos (1:N) desde la tabla de hechos central ventas hacia las dimensiones (clientes, productos, categorias y Dim_Fechas).
-
-Comprobá las medidas DAX clave centralizadas en la tabla _Medidas:
-
-Total Ventas
-
-Ventas YTD
+## 💻 Ejecución de Scripts SQL
+Para desplegar y verificar la estructura relacional del proyecto, el procedimiento requiere abrir **pgAdmin** en tu entorno de PostgreSQL, crear una nueva base de datos bajo el nombre de `ventas_tech` y ejecutar en orden los bloques de sentencias correspondientes a la creación de las tablas tabulares (`categorias`, `clientes`, `productos` y `ventas`) junto con sus respectivas inserciones de datos. Posteriormente, se debe cargar y auditar el archivo `m5_consultas_joins.sql` para comprobar el funcionamiento de las vistas base, las uniones con `INNER JOIN` y las métricas del resumen ejecutivo mensual y ranking de productos.
 
 Ventas LY
 
